@@ -1,3 +1,37 @@
 MIXXX Controller mapping for Hercules DJ Controller Instinct
+@author: mich@softwareschneiderei.ch
 
 http://mixxx.org/
+
+
+
+Description of Mappings
+
+Hot Cue
+=======
+(off -> click MODE)
+1,2 : Select/Store Hotcue 1,2
+3,4 : Delete Hotcue 1,2
+
+
+
+
+Todo:
+=====
+1) Automappings
+2) Jog Wheels
+3) Pitch +/- + Switch
+4) Hotcue Deletions
+    1,2,3,4 : Select/Store Hotcue 1,2,3,4
+    Vinyl + 1,2,3,4 : Delete Hotcue
+5) LED's 
+6) Effects
+7) Better Looping Mappings
+8) Image for Documentation of Mappings
+
+Done:
+=====
+1)
+
+
+
