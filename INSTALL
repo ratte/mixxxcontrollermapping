@@ -1,4 +1,3 @@
-
-copy xml file to the controller directory of mixxx.
+copy .xml and .js file to the controller directory of mixxx.
 in ubuntu/linus this is 
 /usr/share/mixxx/midi
