@@ -1,14 +1,7 @@
 <MixxxMIDIPreset mixxxVersion="1.10.1+" schemaVersion="1">
-<controller id="Hercules DJControl Instinct MID" port="">
-	<info>
-		<name>Midi Preset for Hercules DJControl Instinct</name>
-		<author>Mich Wyser</author>
-		<description></description>
-                <wiki>encoded wikiurl</wiki>
-                <forums>Encoded URL to Mixxx discussion forums page for this controller mapping</forums>
-	</info>
+    <controller id="Hercules DJControl Instinct MID">
         <scriptfiles>
-            <file filename="Hercules-DJControl-Instinct-scripts.js" functionprefix="HerculesDJControlInstinct"/>
+            <file functionprefix="HCInstinct" filename="Hercules-DJControl-Instinct-scripts.js"/>
         </scriptfiles>
         <controls>
             <control>
@@ -162,26 +155,6 @@
                 </options>
             </control>
             <control>
-                <status>0xb0</status>
-                <midino>0x32</midino>
-                <group>[Channel1]</group>
-                <key>HCInstinct.wheelTurn0</key>
-                <description>Left Jog Wheel pressed and turning</description>
-                <options>
-                    <script-binding/>
-                </options>
-            </control>
-            <control>
-                <status>0xb0</status>
-                <midino>0x33</midino>
-                <group>[Channel2]</group>
-                <key>HCInstinct.wheelTurn1</key>
-                <description>Right JogWheel pressed and turning</description>
-                <options>
-                    <script-binding/>
-                </options>
-            </control>
-            <control>
                 <status>0x80</status>
                 <midino>0x16</midino>
                 <group>[Channel1]</group>
@@ -202,6 +175,16 @@
                 </options>
             </control>
             <control>
+                <status>0xb0</status>
+                <midino>0x32</midino>
+                <group>[Channel1]</group>
+                <key>HCInstinct.wheelTurn0</key>
+                <description>Left Jog Wheel pressed and turning</description>
+                <options>
+                    <script-binding/>
+                </options>
+            </control>
+            <control>
                 <status>0x80</status>
                 <midino>0x18</midino>
                 <group>[Channel1]</group>
@@ -209,6 +192,16 @@
                 <description></description>
                 <options>
                     <normal/>
+                </options>
+            </control>
+            <control>
+                <status>0xb0</status>
+                <midino>0x33</midino>
+                <group>[Channel2]</group>
+                <key>HCInstinct.wheelTurn1</key>
+                <description>Right JogWheel pressed and turning</description>
+                <options>
+                    <script-binding/>
                 </options>
             </control>
             <control>
@@ -225,20 +218,20 @@
                 <status>0xb0</status>
                 <midino>0x34</midino>
                 <group>[Channel1]</group>
-                <key>rate</key>
-                <description></description>
+                <key>HCInstinct.tempPitch</key>
+                <description>A Pitch Click up/down</description>
                 <options>
-                    <normal/>
+                    <script-binding/>
                 </options>
             </control>
             <control>
                 <status>0xb0</status>
                 <midino>0x35</midino>
                 <group>[Channel2]</group>
-                <key>rate</key>
-                <description></description>
+                <key>HCInstinct.tempPitch</key>
+                <description>B Pitch Click up/down</description>
                 <options>
-                    <normal/>
+                    <script-binding/>
                 </options>
             </control>
             <control>
@@ -622,6 +615,26 @@
                 </options>
             </control>
             <control>
+                <status>0x90</status>
+                <midino>0x11</midino>
+                <group>[Channel1]</group>
+                <key>HCInstinct.pitch</key>
+                <description>A Pitch -</description>
+                <options>
+                    <script-binding/>
+                </options>
+            </control>
+            <control>
+                <status>0x90</status>
+                <midino>0x12</midino>
+                <group>[Channel1]</group>
+                <key>HCInstinct.pitch</key>
+                <description>A Pitch +</description>
+                <options>
+                    <script-binding/>
+                </options>
+            </control>
+            <control>
                 <status>0x80</status>
                 <midino>0x35</midino>
                 <group>[Channel1]</group>
@@ -634,8 +647,8 @@
             <control>
                 <status>0x90</status>
                 <midino>0x13</midino>
-                <group>[Sampler3]</group>
-                <key>bpm</key>
+                <group>[Channel1]</group>
+                <key>back</key>
                 <description></description>
                 <options>
                     <normal/>
@@ -702,16 +715,6 @@
                 </options>
             </control>
             <control>
-                <status>0x90</status>
-                <midino>0x30</midino>
-                <group>[Channel2]</group>
-                <key>play</key>
-                <description></description>
-                <options>
-                    <normal/>
-                </options>
-            </control>
-            <control>
                 <status>0x80</status>
                 <midino>0x39</midino>
                 <group>[Playlist]</group>
@@ -757,16 +760,6 @@
                 <group>[Channel1]</group>
                 <key>HCInstinct.wheelTouch0</key>
                 <description>Left JogWheel switch </description>
-                <options>
-                    <script-binding/>
-                </options>
-            </control>
-	    <control>
-                <status>0x90</status>
-                <midino>0x34</midino>
-                <group>[Channel2]</group>
-                <key>HCInstinct.wheelTouch1</key>
-                <description>Right JogWheel switch </description>
                 <options>
                     <script-binding/>
                 </options>
@@ -883,6 +876,26 @@
             </control>
             <control>
                 <status>0x90</status>
+                <midino>0x2b</midino>
+                <group>[Channel2]</group>
+                <key>HCInstinct.pitch</key>
+                <description>B Pitch -</description>
+                <options>
+                    <script-binding/>
+                </options>
+            </control>
+            <control>
+                <status>0x90</status>
+                <midino>0x2c</midino>
+                <group>[Channel2]</group>
+                <key>HCInstinct.pitch</key>
+                <description>B Pitch -</description>
+                <options>
+                    <script-binding/>
+                </options>
+            </control>
+            <control>
+                <status>0x90</status>
                 <midino>0x2d</midino>
                 <group>[Channel2]</group>
                 <key>back</key>
@@ -906,6 +919,16 @@
                 <midino>0x2f</midino>
                 <group>[Channel2]</group>
                 <key>cue_default</key>
+                <description></description>
+                <options>
+                    <normal/>
+                </options>
+            </control>
+            <control>
+                <status>0x90</status>
+                <midino>0x30</midino>
+                <group>[Channel2]</group>
+                <key>play</key>
                 <description></description>
                 <options>
                     <normal/>
@@ -939,6 +962,16 @@
                 <description></description>
                 <options>
                     <normal/>
+                </options>
+            </control>
+            <control>
+                <status>0x90</status>
+                <midino>0x34</midino>
+                <group>[Channel2]</group>
+                <key>HCInstinct.wheelTouch1</key>
+                <description>Right JogWheel switch </description>
+                <options>
+                    <script-binding/>
                 </options>
             </control>
             <control>

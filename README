@@ -1,7 +1,8 @@
 MIXXX Controller mapping for Hercules DJ Controller Instinct
 @author: mich@softwareschneiderei.ch
-
-http://mixxx.org/
+@date: November2012
+@discussion: http://www.mixxx.org/forums/viewtopic.php?f=7&t=3907
+http:/	/mixxx.org/
 
 
 Description of Mappings
@@ -13,24 +14,25 @@ Hot Cue
 3,4 : Delete Hotcue 1,2
 
 
-
-
 Todo:
 =====
-3) Pitch +/- + Switch
-4) Headphone +- Switches -> Volume
-5) Hotcue Deletions
+
+4) Pitch - and + simultaneously = Reset Pitch to Zero
+5) LED's 
+6) Hotcue Deletions
     1,2,3,4 : Select/Store Hotcue 1,2,3,4
     Vinyl + 1,2,3,4 : Delete Hotcue
-6) LED's 
-7) Effects
-8) Better Looping Mappings
-9) Image for Documentation of Mappings / Wiki
+7) Headphone +- Switches -> Volume
+8) Effects
+9) Better Looping Mappings
+10) Simulate Gain with Vinyl + Pitch
+11) Simulate Mastervolume with Headphone-+ & Vinyl
+12) Image for Documentation of Mappings / Wiki
 
 Done:
 =====
 1) Automapping
 2) Jog Wheels
-
+3) Pitch +/- & PitchSwitch
 
 
