@@ -1,6 +1,13 @@
 <MixxxMIDIPreset mixxxVersion="1.10.1+" schemaVersion="1">
-    <controller id="Hercules DJControl Instinct MID">
-        <scriptfiles>
+    <controller id="Hercules DJControl Instinct MID" port="">
+	<info>
+		<name>Midi Preset for Hercules DJControl Instinct</name>
+		<author>Mich Wyser</author>
+		<description></description>
+		<wiki>encoded wikiurl</wiki>
+		<forums>Encoded URL to Mixxx discussion forums page for this controller mapping</forums>
+	</info>
+	<scriptfiles>
             <file functionprefix="HCInstinct" filename="Hercules-DJControl-Instinct-scripts.js"/>
         </scriptfiles>
         <controls>
@@ -486,7 +493,7 @@
             </control>
             <control>
                 <status>0x90</status>
-                <midino>0xa</midino>
+                <midino>0xb</midino>
                 <group>[Channel1]</group>
                 <key>reloop_exit</key>
                 <description></description>
@@ -506,7 +513,7 @@
             </control>
             <control>
                 <status>0x90</status>
-                <midino>0xb</midino>
+                <midino>0xa</midino>
                 <group>[Channel1]</group>
                 <key>loop_out</key>
                 <description></description>
@@ -806,7 +813,7 @@
             </control>
             <control>
                 <status>0x90</status>
-                <midino>0x24</midino>
+                <midino>0x25</midino>
                 <group>[Channel2]</group>
                 <key>reloop_exit</key>
                 <description></description>
@@ -816,7 +823,7 @@
             </control>
             <control>
                 <status>0x90</status>
-                <midino>0x25</midino>
+                <midino>0x24</midino>
                 <group>[Channel2]</group>
                 <key>loop_out</key>
                 <description></description>
@@ -977,11 +984,11 @@
             <control>
                 <status>0x90</status>
                 <midino>0x35</midino>
-                <group>[Channel1]</group>
-                <key>hotcue_1_clear</key>
+                <group>[Master]</group>
+                <key>HCInstinct.vinylButtonHandler</key>
                 <description></description>
                 <options>
-                    <normal/>
+                    <script-binding/>
                 </options>
             </control>
             <control>
@@ -1186,7 +1193,7 @@
                 <minimum>0.5</minimum>
                 <maximum>1</maximum>
                 <status>0x90</status>
-                <midino>0x33</midino>
+                <midino>0x34</midino>
                 <on>0x7f</on>
                 <off>0x0</off>
             </output>
@@ -1200,7 +1207,7 @@
                 <minimum>0.5</minimum>
                 <maximum>1</maximum>
                 <status>0x90</status>
-                <midino>0x34</midino>
+                <midino>0x33</midino>
                 <on>0x7f</on>
                 <off>0x0</off>
             </output>
@@ -1242,7 +1249,7 @@
                 <minimum>0.5</minimum>
                 <maximum>1</maximum>
                 <status>0x90</status>
-                <midino>0x47</midino>
+                <midino>0x48</midino>
                 <on>0x7f</on>
                 <off>0x0</off>
             </output>
@@ -1256,7 +1263,7 @@
                 <minimum>0.5</minimum>
                 <maximum>1</maximum>
                 <status>0x90</status>
-                <midino>0x48</midino>
+                <midino>0x47</midino>
                 <on>0x7f</on>
                 <off>0x0</off>
             </output>
