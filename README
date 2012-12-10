@@ -9,19 +9,24 @@ Description of Mappings
 
 Hot Cue
 =======
-(off -> click MODE)
+(click MODE -> off = Cue Mode)
 1,2 : Select/Store Hotcue 1,2
 3,4 : Delete Hotcue 1,2
+
+Loop
+=====
+1,2 loop in / out
+3: halve looping time
+4: looping off
 
 
 Todo:
 =====
 
-4) Pitch - and + simultaneously = Reset Pitch to Zero
-5) LED's 
-6) Hotcue Deletions
+5) Hotcue Deletions
     1,2,3,4 : Select/Store Hotcue 1,2,3,4
     Vinyl + 1,2,3,4 : Delete Hotcue
+6) LED's     
 7) Headphone +- Switches -> Volume
 8) Effects
 9) Better Looping Mappings
@@ -34,5 +39,5 @@ Done:
 1) Automapping
 2) Jog Wheels
 3) Pitch +/- & PitchSwitch
-
+4) Pitch - and + simultaneously = Reset Pitch to Zero
 
