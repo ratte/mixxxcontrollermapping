@@ -1,3 +1,16 @@
 copy .xml and .js file to the controller directory of mixxx.
-in ubuntu/linus this is 
-/usr/share/mixxx/midi
+
+
++ Windows:
+  - C:\Program Files\Mixxx\controllers
++ Linux:
+  - /usr/share/mixxx/controllers in ubuntu
+  - or /usr/local/share/mixxx/controllers (other linux os)
+
++ OS X:
+  - Assuming Mixxx has been installed to your Applications folder:
+  - 1. Go to Applications/
+  - 2. Control-click Mixxx, select "Show Package Contents"
+  - 3. Copy the above files to the folder Applications/Mixxx.app/Content/Resources/controllers/
+  
+  

@@ -1,14 +1,14 @@
 <MixxxMIDIPreset mixxxVersion="1.10.1+" schemaVersion="1">
+    <info>
+      <name>Hercules DJ Control Instinct</name>
+      <author>Mich Wyser</author>
+      <description></description>
+      <wiki>https://github.com/ratte/mixxxcontrollermapping</wiki>
+      <forums>http://www.mixxx.org/forums/viewtopic.php?f=7&amp;t=3907</forums>
+    </info>
     <controller id="Hercules DJControl Instinct MID" port="">
-	<info>
-		<name>Midi Preset for Hercules DJControl Instinct</name>
-		<author>Mich Wyser</author>
-		<description></description>
-		<wiki>encoded wikiurl</wiki>
-		<forums>Encoded URL to Mixxx discussion forums page for this controller mapping</forums>
-	</info>
 	<scriptfiles>
-            <file functionprefix="HCInstinct" filename="Hercules-DJControl-Instinct-scripts.js"/>
+            <file functionprefix="HCInstinct" filename="Hercules-DJ-Control-Instinct-scripts.js"/>
         </scriptfiles>
         <controls>
             <control>
@@ -782,16 +782,6 @@
                 </options>
             </control>
             <control>
-                <status>0x80</status>
-                <midino>0x41</midino>
-                <group>[Master]</group>
-                <key>headVolume</key>
-                <description></description>
-                <options>
-                    <normal/>
-                </options>
-            </control>
-            <control>
                 <status>0x90</status>
                 <midino>0x1f</midino>
                 <group>[Sampler2]</group>
@@ -1031,17 +1021,49 @@
                     <normal/>
                 </options>
             </control>
-            <control>
+	<control>
+                <status>0x90</status>
+                <midino>0x40</midino>
+                <group>[Master]</group>
+                <key>HCInstinct.headPhone</key>
+                <description>Headphone Button Minus</description>
+                <options>
+                    <script-binding/>
+                </options>
+	</control>
+        <control>
                 <status>0x90</status>
                 <midino>0x41</midino>
                 <group>[Master]</group>
+                <key>HCInstinct.headPhone</key>
+                <description>Headphone Button Plus</description>
+                <options>
+                    <script-binding/>
+                </options>
+        </control>
+
+            
+        </controls>
+	<control>
+                <status>0x40</status>
+                <midino>0x7f</midino>
+		<group>[Master]</group>
                 <key>headVolume</key>
-                <description></description>
                 <options>
                     <normal/>
+               </options>
+             </control>
+             <control>
+                <status>0x41</status>
+                <midino>0x7f</midino>
+                <group>[Master]</group>
+                <key>headVolume</key>
+                <options>
+                    <script-binding/>
                 </options>
             </control>
-        </controls>
+	
+	
         <outputs>
             <output>
                 <group>[Channel2]</group>

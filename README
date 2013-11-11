@@ -6,6 +6,7 @@ http:/	/mixxx.org/
 
 
 Description of Mappings
+===============
 
 Hot Cue
 =======
@@ -19,6 +20,18 @@ Loop
 3: halve looping time
 4: looping off
 
+Headpone Plus/Minus Buttons:
+==================
+Press both buttons together puts the Headphone Volume to Zero // Full Volume.
+
+Pitch
+====
+To have a more precide way to work, Pitching makes fine tuning, Plus/Minus Buttons are temporary 
+pitchings. 
+Pressing Plus- and Minus-Buttons together resets the Pitch to Zero.
+(Feel free to change  :)
+
+
 
 Todo:
 =====
@@ -27,7 +40,6 @@ Todo:
     1,2,3,4 : Select/Store Hotcue 1,2,3,4
     Vinyl + 1,2,3,4 : Delete Hotcue
 6) LED's     
-7) Headphone +- Switches -> Volume
 8) Effects
 9) Better Looping Mappings
 10) Simulate Gain with Vinyl + Pitch
@@ -40,4 +52,4 @@ Done:
 2) Jog Wheels
 3) Pitch +/- & PitchSwitch
 4) Pitch - and + simultaneously = Reset Pitch to Zero
-
+7) Headphone +- Switches -> Headphone-Volume

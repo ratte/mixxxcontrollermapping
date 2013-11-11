@@ -4,13 +4,12 @@ function HCInstinct() {};
 
 // ----------   Global variables    ---------- 
 HCInstinct.scratching = [false, false];
-HCInstinct.pitchSpeedFast = true; 	// temporary Pitch Speed of +/-  true = 
 HCInstinct.vinylButton = false;			
 HCInstinct.pitchSwitches = new Array();
 HCInstinct.pitchSwitches["A"] = [0,0];
 HCInstinct.pitchSwitches["B"] = [0,0];
-
-HCInstinct.pitchB = [0,0];
+HCInstinct.headPhoneVolButtons = [false,false];
+HCInstinct.headPhoneDoublepressed = false;	
 // ----------   Functions    ----------
 
 // called when the MIDI device is opened & set up
@@ -20,26 +19,38 @@ HCInstinct.init = function(id, debugging) {
 	HCInstinct.jogFastPosition=[0,0];
 
 	HCInstinct.allLedOff();
-
-	// Switch-on some LEDs for improve the usability
-	// midi.sendShortMsg(0x90, 46, 0x7F);	// Automix LED
-	// midi.sendShortMsg(0x90, 14, 0x7F);	// Cue deck A LED
-	// midi.sendShortMsg(0x90, 34, 0x7F);	// Cue deck B LED
-	print ("***** Hercules DJ Instinct Control id: \""+id+"\" initialized.");
+	HCInstinct.testLeds();
+	print ("***** Hercules DJ Instinct Control id: \""+id+"\" initialized. ***** ");
 };
+
 
 // Called when the MIDI device is closed
 HCInstinct.shutdown = function(id) {
 	HCInstinct.allLedOff();
-	print ("***** Hercules DJ Instinct Control id: \""+id+"\" shutdown.");	
+	print ("***** Herculhex es DJ Instinct Control id: \""+id+"\" shutdown.");	
 };
 
 
 // === MISC TO MANAGE LEDS ===
 
+
+// Switch off all LEDs
 HCInstinct.allLedOff = function () {
-	// Switch off all LEDs
+	for (var i = 0; i <= 127; i++) {
+	  midi.sendShortMsg(0x90, i, 0x00);
+	};
 };
+
+
+//sets all LED's for testing
+HCInstinct.testLeds = function () {
+	// LEDS: x7F = on; 0x00 = OFF
+	for (var i = 0; i <= 255; i++) {
+	  midi.sendShortMsg(0x90, i, 0x7F);
+	};
+};
+
+
 
 // Use VinylButton as "Shift"-Button
 HCInstinct.vinylButtonHandler = function(channel,control, value, status) {
@@ -48,11 +59,11 @@ HCInstinct.vinylButtonHandler = function(channel,control, value, status) {
     }
     else {
 	HCInstinct.vinylButton=false;
-    }
+    };
 };
 
 
-// The button that enables/disables scratching
+// The button that enables/disables 
 HCInstinct.wheelTouch0 = function (channel, control, value, status) {
 
     if (value == 0x7F && !HCInstinct.scratching[0]) { // catch only first touch
@@ -66,7 +77,7 @@ HCInstinct.wheelTouch0 = function (channel, control, value, status) {
     else {    //  button up
         engine.scratchDisable(1);
         HCInstinct.scratching[0] = false;
-    }
+    };
 
 };
 // The button that enables/disables scratching
@@ -89,10 +100,6 @@ HCInstinct.wheelTouch1 = function (channel, control, value, status) {
 
  
 HCInstinct.wheelTurn0 = function (channel, control, value, status) {
-    
-	// See if we're on scratching.
-	//if (HCInstinct.scratching[0] == false )  return;
-   
 	var newValue;
 	if (value-64 > 0) newValue = value-128; // 7F, 7E, 7D
 	else newValue = value;
@@ -177,3 +184,77 @@ HCInstinct.tempPitch = function (midino, control, value, status, group) {
 	engine.setValue(group, rate, 1);
 	engine.setValue(group, rate, 0);
 };
+
+
+
+// Cue Buttons Handling (Erase Cue-Points together with "Vinyl")
+HCInstinct.cueButtons = function (midino, control, value, status, group) {
+	//var state = (value == 0x7F) ? 1 : 0;
+        var act = (HCInstinct.vinylButton == true) ? "clear" : "activate";
+	switch (control){
+		case 0x0D: 
+			engine.setValue(group, "hotcue_1_"+ act); 
+			break;
+		case 0x0E: 
+			engine.setValue(group, "hotcue_2_"+ act); 
+			break;
+		case 0x0F:
+			engine.setValue(group, "hotcue_3_"+ act); 
+			break;
+		case 0x10:  
+			engine.setValue(group, "hotcue_4_"+ act); 
+			break;
+		case 0x27:
+		case 0x28:    
+		case 0x29:  		
+		case 0x2A:  
+	
+	};
+	print ("act:"+act+ " control:"+control);
+
+};
+
+// Headphone Buttons
+// '+' and '-' simultanously switches betwon Zero// Full Volume
+HCInstinct.headPhone = function (midino, control, value, status) {
+	var headVol = engine.getValue("[Master]","headVolume");
+	var stepwidth = 0.2;
+
+	if (control == 0x40) { 
+		// '-' Button
+		if (value ==0x00){ // Button released after pushing
+			if (!HCInstinct.headPhoneDoublepressed)
+				headVol -= stepwidth;
+			if (headVol <0) 	headVol =0.0;
+			HCInstinct.headPhoneVolButtons[0] = false;
+		} else {
+			HCInstinct.headPhoneVolButtons[0] = true;
+		}
+	};	
+	if (control == 0x41){ 
+		// '+' Button
+		if (value ==0x00){				
+			if (!HCInstinct.headPhoneDoublepressed)
+				headVol += stepwidth;
+			if (headVol >=5)	          headVol = 5;
+			HCInstinct.headPhoneVolButtons[1] = false;
+		} else {
+			HCInstinct.headPhoneVolButtons[1] = true;
+		};
+	};	
+	
+	if (!HCInstinct.headPhoneVolButtons[0] && !HCInstinct.headPhoneVolButtons[1]){
+	        HCInstinct.headPhoneDoublepressed = false;
+	}
+	
+	// + and - buttons pressed simultanously
+	if (HCInstinct.headPhoneVolButtons[0]== true && HCInstinct.headPhoneVolButtons[1] == true){
+		if (headVol <= 0.0+ stepwidth)	headVol = 5.0;
+		else if (headVol <= 1.0)	headVol = 0.0;
+		else if (headVol = 5.0)  headVol = 0.0;
+		else if (headVol > 1.0)  headVol = 5.0;
+	        HCInstinct.headPhoneDoublepressed = true;
+	};
+	
+	engine.setValue("[Master]", "headVolume", headVol); 
+}
