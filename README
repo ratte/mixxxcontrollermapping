@@ -1,8 +1,12 @@
 MIXXX Controller mapping for Hercules DJ Controller Instinct
-@author: mich@softwareschneiderei.ch
-@date: November2012
+
+@author: Stephan Martin
+@date: Juli 2014
 @discussion: http://www.mixxx.org/forums/viewtopic.php?f=7&t=3907
-http:/	/mixxx.org/
+http://mixxx.org/
+
+cleanup and additions to the work of mich@softwareschneiderei.ch
+
 
 
 Description of Mappings
@@ -22,7 +26,9 @@ Loop
 
 Headpone Plus/Minus Buttons:
 ==================
-Press both buttons together puts the Headphone Volume to Zero // Full Volume.
+Buttons are not mapped. The Controller takes care of adjusting the volume 
+of the controllers headphone plug. Mixxx also adjustes the volume independend 
+of the controller.
 
 Pitch
 ====
@@ -39,7 +45,7 @@ Todo:
 5) Hotcue Deletions
     1,2,3,4 : Select/Store Hotcue 1,2,3,4
     Vinyl + 1,2,3,4 : Delete Hotcue
-6) LED's     
+7) Headphone +- Switches -> Headphone-Volume
 8) Effects
 9) Better Looping Mappings
 10) Simulate Gain with Vinyl + Pitch
@@ -52,4 +58,5 @@ Done:
 2) Jog Wheels
 3) Pitch +/- & PitchSwitch
 4) Pitch - and + simultaneously = Reset Pitch to Zero
-7) Headphone +- Switches -> Headphone-Volume
+6) LED's     
+13) Playlist Navigation
