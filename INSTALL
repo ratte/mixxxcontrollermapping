@@ -1,4 +1,5 @@
 copy .xml and .js file to the controller directory of mixxx.
+Reload defaults of the controller in options menue.
 
 
 + Windows:
