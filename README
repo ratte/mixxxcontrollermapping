@@ -42,9 +42,6 @@ Pressing Plus- and Minus-Buttons together resets the Pitch to Zero.
 Todo:
 =====
 
-5) Hotcue Deletions
-    1,2,3,4 : Select/Store Hotcue 1,2,3,4
-    Vinyl + 1,2,3,4 : Delete Hotcue
 7) Headphone +- Switches -> Headphone-Volume
 8) Effects
 9) Better Looping Mappings
@@ -58,5 +55,8 @@ Done:
 2) Jog Wheels
 3) Pitch +/- & PitchSwitch
 4) Pitch - and + simultaneously = Reset Pitch to Zero
+5) Hotcue Deletions
+    1,2,3,4 : Select/Store Hotcue 1,2,3,4
+    Vinyl + 1,2,3,4 : Delete Hotcue
 6) LED's     
 13) Playlist Navigation
