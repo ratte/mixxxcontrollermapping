@@ -4,10 +4,10 @@ function HCI() {};
 
 
 
-// ----------   Global variables    ---------- 
+// ----------   Global variables    ----------
 HCI.scratching = [false, false];
-HCI.pitchSpeedFast = true; 	// temporary Pitch Speed of +/-  true = 
-HCI.vinylButton = false;			
+HCI.pitchSpeedFast = true; 	// temporary Pitch Speed of +/-  true =
+HCI.vinylButton = false;
 HCI.pitchSwitches = new Array();
 HCI.pitchSwitches["A"] = [0,0];
 HCI.pitchSwitches["B"] = [0,0];
@@ -21,7 +21,7 @@ HCI.timerPlaylist= false;
 // ----------   Functions    ----------
 
 // called when the MIDI device is opened & set up
-HCI.init = function(id, debugging) {	
+HCI.init = function(id, debugging) {
 	HCI.id = id;
 	HCI.FastPosition=[0,0];
 	HCI.jogFastPosition=[0,0];
@@ -36,7 +36,7 @@ HCI.init = function(id, debugging) {
 // Called when the MIDI device is closed
 HCI.shutdown = function(id) {
 	HCI.allLedOff();
-	print ("***** Hercules DJ Instinct Control id: \""+id+"\" shutdown.");	
+	print ("***** Hercules DJ Instinct Control id: \""+id+"\" shutdown.");
 };
 
 
@@ -93,7 +93,7 @@ HCI.wheelTouch1 = function (channel, control, value, status) {
 
 };
 
- 
+
 HCI.wheelTurn0 = function (channel, control, value, status, group) {
     if (engine.getValue(group, "duration") == 0){
       if (value == 1) {
@@ -102,10 +102,10 @@ HCI.wheelTurn0 = function (channel, control, value, status, group) {
          engine.setValue("[Playlist]","SelectPrevTrack",true);
       }
     }
-    
+
 	// See if we're on scratching.
 	//if (HCI.scratching[0] == false )  return;
-   
+
 	var newValue;
 	if (value-64 > 0) newValue = value-128; // 7F, 7E, 7D
 	else newValue = value;
@@ -122,7 +122,7 @@ HCI.wheelTurn1 = function (channel, control, value, status, group) {
     }
 	// See if we're on scratching.
 	if (HCI.scratching[1] == false )  return;
-   
+
 	var newValue;
 	if (value-64 > 0) newValue = value-128; // 7F, 7E, 7D
 	else newValue = value;
@@ -136,7 +136,7 @@ HCI.knobIncrement = function (group, action, minValue, maxValue, centralValue, s
 	rangeWidthLeft = centralValue-minValue;
 	rangeWidthRight = maxValue-centralValue;
 	actual = engine.getValue(group, action);
-	
+
 	if (actual < 1){
 		increment = ((rangeWidthLeft)/semiStep)*sign;
 	}
@@ -153,46 +153,46 @@ HCI.knobIncrement = function (group, action, minValue, maxValue, centralValue, s
 	else if (sign == -1 && actual > minValue){
 		newValue = actual + increment;
 	}
-	
+
 	return newValue;
 };
 
 
 
-// Pitch +/- 
+// Pitch +/-
 HCI.pitch = function (midino, control, value, status, group) {
 	var speed = (HCI.vinylButton == true) ? "" : "_small";
 	var state = (value == 0x7F) ? 1 : 0;
 	switch (control){
 		case 0x11: HCI.pitchSwitches["A"][0]=state;
-			engine.setValue(group, "rate_temp_down"+speed, state); 
+			engine.setValue(group, "rate_temp_down"+speed, state);
 			break;
 		case 0x12: HCI.pitchSwitches["A"][1]=state;
-			engine.setValue(group, "rate_temp_up"+speed, state); 
+			engine.setValue(group, "rate_temp_up"+speed, state);
 			break;
 		case 0x2B: HCI.pitchSwitches["B"][0]=state;
-			engine.setValue(group, "rate_temp_down"+speed, state); 
+			engine.setValue(group, "rate_temp_down"+speed, state);
 			break;
 		case 0x2C: HCI.pitchSwitches["B"][1]=state;
-			engine.setValue(group, "rate_temp_up"+speed, state); 
+			engine.setValue(group, "rate_temp_up"+speed, state);
 			break;
-	};	
+	};
         // when buttons + and - pressed simultanously
         if (HCI.pitchSwitches["A"][0] && HCI.pitchSwitches["A"][1]) {
 		// reset pitch to 0
-		engine.setValue(group, "rate", 0); 
+		engine.setValue(group, "rate", 0);
 	};
         if (HCI.pitchSwitches["B"][0] && HCI.pitchSwitches["B"][1]) {
-		engine.setValue(group, "rate", 0); 
+		engine.setValue(group, "rate", 0);
 	}
 };
 
-// Up/Down-Switches 
+// Up/Down-Switches
 HCI.tempPitch = function (midino, control, value, status, group) {
 	var rate = (value==0x7F) ? "rate_perm_down" : "rate_perm_up" ;
 	if (HCI.vinylButton == false) {
 		rate = rate + "_small";
-	}	
+	}
 	engine.setValue(group, rate, 1);
 	engine.setValue(group, rate, 0);
 };
@@ -209,7 +209,7 @@ HCI.PlaylistModeFolder = function (channel, control, value, status, group) {
     midi.sendShortMsg(0x90, 0x39, 0x7F);	// LED Folder
     midi.sendShortMsg(0x80, 0x38, 0x00);	// LED File
   }
-}
+};
 
 HCI.PlaylistModeFile  = function (channel, control, value, status, group) {
   print( "HCI.PlaylistModeFile "+channel+","+ control+","+ value+","+ status+","+ group+"#");
@@ -222,7 +222,7 @@ HCI.PlaylistModeFile  = function (channel, control, value, status, group) {
     midi.sendShortMsg(0x80, 0x39, 0x00);	// LED Folder
     midi.sendShortMsg(0x90, 0x38, 0x7F);	// LED File
   }
-}
+};
 
 HCI.PlaylistPrev = function (channel, control, value, status, group) {
   print( "HCI.PlaylistPrev "+channel+","+ control+","+ value+","+ status+","+ group+"#");
@@ -230,12 +230,12 @@ HCI.PlaylistPrev = function (channel, control, value, status, group) {
     if (HCI.PlaylistMode == "File") {
       if (!HCI.timerPlaylist) {
           HCI.timerPlaylist = engine.beginTimer(100, 'HCI.PlaylistPrev('+channel+','+control+','+value+','+status+',"'+group+'")',false);
-      }  
+      }
       engine.setValue(group,"SelectPrevTrack",true);
     } else {
       if (HCI.PlaylistMode == "Folder") {
         engine.setValue(group,"SelectPrevPlaylist",true);
-      } else { 
+      } else {
         print ("Unknown PlaylistMode: "+HCI.PlaylistMode);
       }
     }
@@ -245,7 +245,7 @@ HCI.PlaylistPrev = function (channel, control, value, status, group) {
        HCI.timerPlaylist = false;
     }
   }
-}
+};
 
 
 HCI.PlaylistNext = function (channel, control, value, status, group) {
@@ -253,12 +253,12 @@ HCI.PlaylistNext = function (channel, control, value, status, group) {
     if (HCI.PlaylistMode == "File") {
       if (!HCI.timerPlaylist) {
         HCI.timerPlaylist = engine.beginTimer(100, 'HCI.PlaylistNext('+channel+','+control+','+value+','+status+',"'+group+'")',false);
-      }  
+      }
       engine.setValue(group,"SelectNextTrack",true);
     } else {
       if (HCI.PlaylistMode == "Folder") {
         engine.setValue(group,"SelectNextPlaylist",true);
-      } else { 
+      } else {
         print ("Unknown PlaylistMode: "+HCI.PlaylistMode);
       }
     }
@@ -268,4 +268,27 @@ HCI.PlaylistNext = function (channel, control, value, status, group) {
        HCI.timerPlaylist = false;
     }
   }
-}
+};
+
+HCI.hotCue = function (midino, control, value, status, group) {
+    print( "HCI.hotCue "+midino+","+ control+","+ value+","+ status+","+ group+"#");
+    var number = 1;
+    if (control == 0xe || control == 0x28) {
+        number = 2;
+    }
+    else if (control == 0xf || control == 0x29) {
+        number = 3;
+    }
+    else if (control == 0x10 || control == 0x2a) {
+        number = 4;
+    }
+
+	var action = "hotcue_"+number+"_";
+	if (HCI.vinylButton == false) {
+		action += "activate";
+	}
+	else {
+	    action += "clear";
+    }
+	engine.setValue(group, action, value == 0x7F ? 1 : 0);
+};
