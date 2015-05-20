@@ -104,7 +104,7 @@ HCI.wheelTurn0 = function (channel, control, value, status, group) {
     }
 
 	// See if we're on scratching.
-	//if (HCI.scratching[0] == false )  return;
+	if (HCI.scratching[0] == false )  return;
 
 	var newValue;
 	if (value-64 > 0) newValue = value-128; // 7F, 7E, 7D

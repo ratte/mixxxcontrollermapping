@@ -638,7 +638,7 @@
                 <status>0x90</status>
                 <midino>0x16</midino>
                 <group>[Channel1]</group>
-                <key>play</key>
+                <key>play_indicator</key>
                 <description></description>
                 <minimum>0.5</minimum>
             </output>
@@ -762,7 +762,7 @@
                 <status>0x90</status>
                 <midino>0x30</midino>
                 <group>[Channel2]</group>
-                <key>play</key>
+                <key>play_indicator</key>
                 <description></description>
                 <minimum>0.5</minimum>
             </output>
