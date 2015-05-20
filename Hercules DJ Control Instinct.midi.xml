@@ -221,8 +221,26 @@
             <control>
                 <status>0x90</status>
                 <midino>0x1</midino>
-                <group>[Channel1]</group>
-                <key>flanger</key>
+                <group>[EffectRack1_EffectUnit1]</group>
+                <key>group_[Channel1]_enable</key>
+            </control>
+            <control>
+                <status>0x90</status>
+                <midino>0x2</midino>
+                <group>[EffectRack1_EffectUnit2]</group>
+                <key>group_[Channel1]_enable</key>
+            </control>
+            <control>
+                <status>0x90</status>
+                <midino>0x3</midino>
+                <group>[EffectRack1_EffectUnit3]</group>
+                <key>group_[Channel1]_enable</key>
+            </control>
+            <control>
+                <status>0x90</status>
+                <midino>0x4</midino>
+                <group>[EffectRack1_EffectUnit4]</group>
+                <key>group_[Channel1]_enable</key>
             </control>
             <control>
                 <status>0x90</status>
@@ -278,25 +296,37 @@
                 <status>0x90</status>
                 <midino>0xd</midino>
                 <group>[Channel1]</group>
-                <key>hotcue_1_activate</key>
+                <key>HCI.hotCue</key>
+                <options>
+                    <script-binding/>
+                </options>
             </control>
             <control>
                 <status>0x90</status>
                 <midino>0xe</midino>
                 <group>[Channel1]</group>
-                <key>hotcue_2_activate</key>
+                <key>HCI.hotCue</key>
+                <options>
+                    <script-binding/>
+                </options>
             </control>
             <control>
                 <status>0x90</status>
                 <midino>0xf</midino>
                 <group>[Channel1]</group>
-                <key>hotcue_1_clear</key>
+                <key>HCI.hotCue</key>
+                <options>
+                    <script-binding/>
+                </options>
             </control>
             <control>
                 <status>0x90</status>
                 <midino>0x10</midino>
                 <group>[Channel1]</group>
-                <key>hotcue_2_clear</key>
+                <key>HCI.hotCue</key>
+                <options>
+                    <script-binding/>
+                </options>
             </control>
 
             <control>
@@ -345,8 +375,26 @@
             <control>
                 <status>0x90</status>
                 <midino>0x1b</midino>
-                <group>[Channel2]</group>
-                <key>flanger</key>
+                <group>[EffectRack1_EffectUnit1]</group>
+                <key>group_[Channel2]_enable</key>
+            </control>
+            <control>
+                <status>0x90</status>
+                <midino>0x1c</midino>
+                <group>[EffectRack1_EffectUnit2]</group>
+                <key>group_[Channel2]_enable</key>
+            </control>
+            <control>
+                <status>0x90</status>
+                <midino>0x1d</midino>
+                <group>[EffectRack1_EffectUnit3]</group>
+                <key>group_[Channel2]_enable</key>
+            </control>
+            <control>
+                <status>0x90</status>
+                <midino>0x1e</midino>
+                <group>[EffectRack1_EffectUnit4]</group>
+                <key>group_[Channel2]_enable</key>
             </control>
             <control>
                 <status>0x90</status>
@@ -382,25 +430,37 @@
                 <status>0x90</status>
                 <midino>0x27</midino>
                 <group>[Channel2]</group>
-                <key>hotcue_1_activate</key>
+                <key>HCI.hotCue</key>
+                <options>
+                    <script-binding/>
+                </options>
             </control>
             <control>
                 <status>0x90</status>
                 <midino>0x28</midino>
                 <group>[Channel2]</group>
-                <key>hotcue_2_activate</key>
+                <key>HCI.hotCue</key>
+                <options>
+                    <script-binding/>
+                </options>
             </control>
             <control>
                 <status>0x90</status>
                 <midino>0x29</midino>
                 <group>[Channel2]</group>
-                <key>hotcue_1_clear</key>
+                <key>HCI.hotCue</key>
+                <options>
+                    <script-binding/>
+                </options>
             </control>
             <control>
                 <status>0x90</status>
                 <midino>0x2a</midino>
                 <group>[Channel2]</group>
-                <key>hotcue_2_clear</key>
+                <key>HCI.hotCue</key>
+                <options>
+                    <script-binding/>
+                </options>
             </control>
             <control>
                 <status>0x90</status>
@@ -449,8 +509,29 @@
             <output>
                 <status>0x90</status>
                 <midino>0x1</midino>
-                <group>[Channel1]</group>
-                <key>flanger</key>
+                <group>[EffectRack1_EffectUnit1]</group>
+                <key>group_[Channel1]_enable</key>
+                <minimum>0.5</minimum>
+            </output>
+            <output>
+                <status>0x90</status>
+                <midino>0x2</midino>
+                <group>[EffectRack1_EffectUnit2]</group>
+                <key>group_[Channel1]_enable</key>
+                <minimum>0.5</minimum>
+            </output>
+            <output>
+                <status>0x90</status>
+                <midino>0x3</midino>
+                <group>[EffectRack1_EffectUnit3]</group>
+                <key>group_[Channel1]_enable</key>
+                <minimum>0.5</minimum>
+            </output>
+            <output>
+                <status>0x90</status>
+                <midino>0x4</midino>
+                <group>[EffectRack1_EffectUnit4]</group>
+                <key>group_[Channel1]_enable</key>
                 <minimum>0.5</minimum>
             </output>
             <output>
@@ -517,7 +598,7 @@
                 <status>0x90</status>
                 <midino>0xd</midino>
                 <group>[Channel1]</group>
-                <key>hotcue_1_activate</key>
+                <key>hotcue_1_enabled</key>
                 <description></description>
                 <minimum>0.5</minimum>
             </output>
@@ -525,7 +606,7 @@
                 <status>0x90</status>
                 <midino>0xe</midino>
                 <group>[Channel1]</group>
-                <key>hotcue_2_activate</key>
+                <key>hotcue_2_enabled</key>
                 <description></description>
                 <minimum>0.5</minimum>
             </output>
@@ -533,7 +614,7 @@
                 <status>0x90</status>
                 <midino>0xf</midino>
                 <group>[Channel1]</group>
-                <key>hotcue_1_clear</key>
+                <key>hotcue_3_enabled</key>
                 <description></description>
                 <minimum>0.5</minimum>
             </output>
@@ -541,7 +622,7 @@
                 <status>0x90</status>
                 <midino>0x10</midino>
                 <group>[Channel1]</group>
-                <key>hotcue_2_clear</key>
+                <key>hotcue_4_enabled</key>
                 <description></description>
                 <minimum>0.5</minimum>
             </output>
@@ -557,7 +638,7 @@
                 <status>0x90</status>
                 <midino>0x16</midino>
                 <group>[Channel1]</group>
-                <key>play</key>
+                <key>play_indicator</key>
                 <description></description>
                 <minimum>0.5</minimum>
             </output>
@@ -580,9 +661,29 @@
             <output>
                 <status>0x90</status>
                 <midino>0x1b</midino>
-                <group>[Channel2]</group>
-                <key>flanger</key>
-                <description></description>
+                <group>[EffectRack1_EffectUnit1]</group>
+                <key>group_[Channel2]_enable</key>
+                <minimum>0.5</minimum>
+            </output>
+            <output>
+                <status>0x90</status>
+                <midino>0x1c</midino>
+                <group>[EffectRack1_EffectUnit2]</group>
+                <key>group_[Channel2]_enable</key>
+                <minimum>0.5</minimum>
+            </output>
+            <output>
+                <status>0x90</status>
+                <midino>0x1d</midino>
+                <group>[EffectRack1_EffectUnit3]</group>
+                <key>group_[Channel2]_enable</key>
+                <minimum>0.5</minimum>
+            </output>
+            <output>
+                <status>0x90</status>
+                <midino>0x1e</midino>
+                <group>[EffectRack1_EffectUnit4]</group>
+                <key>group_[Channel2]_enable</key>
                 <minimum>0.5</minimum>
             </output>
             <output>
@@ -621,7 +722,7 @@
                 <status>0x90</status>
                 <midino>0x27</midino>
                 <group>[Channel2]</group>
-                <key>hotcue_1_activate</key>
+                <key>hotcue_1_enabled</key>
                 <description></description>
                 <minimum>0.5</minimum>
             </output>
@@ -629,7 +730,15 @@
                 <status>0x90</status>
                 <midino>0x28</midino>
                 <group>[Channel2]</group>
-                <key>hotcue_2_activate</key>
+                <key>hotcue_2_enabled</key>
+                <description></description>
+                <minimum>0.5</minimum>
+            </output>
+            <output>
+                <status>0x90</status>
+                <midino>0x29</midino>
+                <group>[Channel2]</group>
+                <key>hotcue_3_enabled</key>
                 <description></description>
                 <minimum>0.5</minimum>
             </output>
@@ -637,7 +746,7 @@
                 <status>0x90</status>
                 <midino>0x2a</midino>
                 <group>[Channel2]</group>
-                <key>hotcue_2_clear</key>
+                <key>hotcue_4_enabled</key>
                 <description></description>
                 <minimum>0.5</minimum>
             </output>
@@ -653,7 +762,7 @@
                 <status>0x90</status>
                 <midino>0x30</midino>
                 <group>[Channel2]</group>
-                <key>play</key>
+                <key>play_indicator</key>
                 <description></description>
                 <minimum>0.5</minimum>
             </output>
